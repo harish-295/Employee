@@ -1,0 +1,31 @@
+﻿@model Employee.Models.Domain.Employees
+@{
+
+}
+<div class="mt-2" style="width:50%">
+    <form asp-action="EditEmployee">
+        <input asp-for="Id" type="hidden" class="form-control">
+
+        <h2>Edit Employee</h2>
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" type="text" class="form-control">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Description</label>
+            <input asp-for="Description" type="text" class="form-control">
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+
+        @if (TempData["msg"] != null)
+        {
+            <div class="mb-3">
+                @TempData["msg"]
+            </div>
+        }
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/Employee/DisplayEmployee" class="btn btn-primary">Back</a>
+    </form>
+</div>
